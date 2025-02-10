@@ -1,0 +1,96 @@
+[
+    {
+        "name": "Friends Group",
+        "avatar": "F",
+        "messages": [
+            { "sender": "Abhi", "text": "Hey!", "time": "10:30 AM" },
+            { "sender": "You", "text": "How's everyone?", "time": "10:32 AM" },
+            { "sender": "Amit", "text": "Let's plan a trip!", "time": "10:35 AM" }
+        ]
+    },
+    {
+        "name": "Amit",
+        "avatar": "images/amit-pic.jpg",
+        "messages": [
+            { "sender": "Amit", "text": "Hey, how are you?", "time": "11:00 AM" },
+            { "sender": "You", "text": "Long time no see!", "time": "11:02 AM" },
+            { "sender": "Amit", "text": "We should catch up soon!", "time": "11:05 AM" }
+        ]
+    },
+    {
+        "name": "Yash",
+        "avatar": "Y",
+        "messages": [
+            { "sender": "Yash", "text": "Can we talk later?", "time": "12:15 PM" }
+        ]
+    },
+    {
+        "name": "Aman",
+        "avatar": "A",
+        "messages": [
+            { "sender": "Aman", "text": "Hey, are you free?", "time": "1:10 PM" },
+            { "sender": "You", "text": "Not right now, what's up?", "time": "1:12 PM" }
+        ]
+    },
+    {
+        "name": "Raj",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Raj", "text": "Don't forget about the project!", "time": "2:00 PM" },
+            { "sender": "You", "text": "Thanks for the reminder!", "time": "2:05 PM" }
+        ]
+    },
+    {
+        "name": "Sunny",
+        "avatar": "S",
+        "messages": [
+            { "sender": "Sunny", "text": "Want to go for coffee?", "time": "3:30 PM" },
+            { "sender": "You", "text": "Sure, what time?", "time": "3:35 PM" }
+        ]
+    },
+    {
+        "name": "Ram",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ram", "text": "Are you coming to the event?", "time": "4:15 PM" },
+            { "sender": "You", "text": "Yes, I'll be there!", "time": "4:20 PM" }
+        ]
+    },
+    {
+        "name": "Karan",
+        "avatar": "K",
+        "messages": [
+            { "sender": "Karan", "text": "See you tomorrow!", "time": "5:00 PM" }
+        ]
+    },
+    {
+        "name": "Nishant",
+        "avatar": "N",
+        "messages": [
+            { "sender": "Nishant", "text": "Can we meet up later?", "time": "6:00 PM" }
+        ]
+    },
+    {
+        "name": "Sanjay",
+        "avatar": "S",
+        "messages": [
+            { "sender": "Sanjay", "text": "Did you finish the assignment?", "time": "7:15 PM" },
+            { "sender": "You", "text": "Not yet, working on it!", "time": "7:20 PM" }
+        ]
+    },
+    {
+        "name": "Priya",
+        "avatar": "P",
+        "messages": [
+            { "sender": "Priya", "text": "Hey, let's catch up soon!", "time": "8:00 PM" },
+            { "sender": "You", "text": "Definitely! Let me know when.", "time": "8:05 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    }
+]

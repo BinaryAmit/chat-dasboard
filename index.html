@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat Web Application</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+</head>
+<body>
+    <div id="wrapper">
+        <div id="left_pannel">
+            <div id="nav">
+                <div id="hem-burger">
+                    <i class="ri-menu-line"></i>
+                </div>
+                <input type="text" placeholder="Search">
+            </div>
+            <div id="chat-items">
+                <!-- Dynamic Chat Items will be here -->
+            </div>
+        </div>
+        <div id="right_pannel">
+            <div id="welcome_msg">
+                <h2>Welcome</h2>
+                <h4>Choose any contact to start chatting</h4>
+            </div>
+            <div id="chat_wrapper">
+                <div id="chat-nav">
+                    <i id="back-icon" class="ri-arrow-left-line"></i>
+                    <div class="avatar"></div>
+                    <h3></h3>
+                    <i class="ri-more-2-line"></i>
+                </div>
+                <div id="chat-messages"></div>
+                <div id="message-bar">
+                    <i class="ri-emotion-happy-line"></i>
+                    <i class="ri-attachment-2"></i>
+                    <textarea name="" id="message-input" placeholder="Type a message..." autocomplete="off"></textarea>
+                    <i id="mic-icon" class="ri-mic-line"></i>
+                    <i id="send-icon" class="ri-send-plane-2-line" style="display: none; cursor: pointer;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
