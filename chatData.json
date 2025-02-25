@@ -14,6 +14,26 @@
         "messages": [
             { "sender": "Amit", "text": "Hey, how are you?", "time": "11:00 AM" },
             { "sender": "You", "text": "Long time no see!", "time": "11:02 AM" },
+            { "sender": "Amit", "text": "We should catch up soon!", "time": "11:05 AM" },
+            { "sender": "You", "text": "Long time no see!", "time": "11:02 AM" },
+            { "sender": "Amit", "text": "We should catch up soon!", "time": "11:05 AM" },
+            { "sender": "You", "text": "Long time no see!", "time": "11:02 AM" },
+            { "sender": "Amit", "text": "We should catch up soon!", "time": "11:05 AM" },
+            { "sender": "You", "text": "Long time no see!", "time": "11:02 AM" },
+            { "sender": "Amit", "text": "We should catch up soon!", "time": "11:05 AM" },
+            { "sender": "You", "text": "Long time no see!", "time": "11:02 AM" },
+            { "sender": "Amit", "text": "We should catch up soon!", "time": "11:05 AM" },
+            { "sender": "You", "text": "Long time no see!", "time": "11:02 AM" },
+            { "sender": "Amit", "text": "We should catch up soon!", "time": "11:05 AM" },
+            { "sender": "You", "text": "Long time no see!", "time": "11:02 AM" },
+            { "sender": "Amit", "text": "We should catch up soon!", "time": "11:05 AM" },
+            { "sender": "You", "text": "Long time no see!", "time": "11:02 AM" },
+            { "sender": "Amit", "text": "We should catch up soon!", "time": "11:05 AM" },
+            { "sender": "You", "text": "Long time no see!", "time": "11:02 AM" },
+            { "sender": "Amit", "text": "We should catch up soon!", "time": "11:05 AM" },
+            { "sender": "You", "text": "Long time no see!", "time": "11:02 AM" },
+            { "sender": "Amit", "text": "We should catch up soon!", "time": "11:05 AM" },
+            { "sender": "You", "text": "Long time no see!", "time": "11:02 AM" },
             { "sender": "Amit", "text": "We should catch up soon!", "time": "11:05 AM" }
         ]
     },
@@ -84,6 +104,307 @@
         "messages": [
             { "sender": "Priya", "text": "Hey, let's catch up soon!", "time": "8:00 PM" },
             { "sender": "You", "text": "Definitely! Let me know when.", "time": "8:05 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
+        ]
+    },
+    {
+        "name": "Ravi",
+        "avatar": "R",
+        "messages": [
+            { "sender": "Ravi", "text": "Hey, how's everything?", "time": "9:00 PM" }
         ]
     },
     {

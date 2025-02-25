@@ -1,29 +1,66 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, interactive-widget=resizes-content">
+
     <title>Chat Web Application</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
+
 <body>
+
     <div id="wrapper">
         <div id="left_pannel">
             <div id="nav">
                 <div id="hem-burger">
                     <i class="ri-menu-line"></i>
                 </div>
-                <input type="text" placeholder="Search">
+                <div id="inputWrapper">
+                    <i id="search-icon" class="ri-search-line"></i>
+                    <input type="text" placeholder="Search or start a new chat">
+                </div>
+                <i class="ri-user-add-line"></i>
             </div>
             <div id="chat-items">
                 <!-- Dynamic Chat Items will be here -->
             </div>
         </div>
+
+
+        <div class="resizer"></div>
+
         <div id="right_pannel">
             <div id="welcome_msg">
-                <h2>Welcome</h2>
-                <h4>Choose any contact to start chatting</h4>
+                <i class="ri-chat-smile-2-line welcome-icon"></i>
+                <h2>Welcome to ChatRoom</h2>
+                <h4>Connect seamlessly with your contacts. Start a conversation by selecting an existing chat or create
+                    a new one to begin your messaging experience.</h4>
+
+                <div class="feature-list">
+                    <div class="feature-item">
+                        <i class="ri-shield-check-line"></i>
+                        <h3>Secure Chats</h3>
+                        <p>End-to-end encrypted conversations for complete privacy</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <i class="ri-sparkling-line"></i>
+                        <h3>Smart Features</h3>
+                        <p>AI-powered suggestions and quick replies</p>
+                    </div>
+
+                    <div class="feature-item">
+                        <i class="ri-group-line"></i>
+                        <h3>Group Chats</h3>
+                        <p>Create communities with unlimited members</p>
+                    </div>
+                </div>
             </div>
             <div id="chat_wrapper">
                 <div id="chat-nav">
@@ -32,17 +69,27 @@
                     <h3></h3>
                     <i class="ri-more-2-line"></i>
                 </div>
-                <div id="chat-messages"></div>
+                <div id="chat-messages">
+
+                </div>
                 <div id="message-bar">
                     <i class="ri-emotion-happy-line"></i>
                     <i class="ri-attachment-2"></i>
-                    <textarea name="" id="message-input" placeholder="Type a message..." autocomplete="off"></textarea>
+                    <textarea name="" id="message-input" enterkeyhint="send" inputmode="text"
+                        placeholder="Type a message..." autocomplete="off" rows="1"></textarea>
                     <i id="mic-icon" class="ri-mic-line"></i>
                     <i id="send-icon" class="ri-send-plane-2-line" style="display: none; cursor: pointer;"></i>
                 </div>
             </div>
         </div>
+
+    </div>
+
+    <div id="no-chats" class="hidden">
+        <p>No chats available. Start a new conversation!</p>
+        <button id="add-chat-btn">+ Add Contact / Community</button>
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>

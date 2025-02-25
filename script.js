@@ -5,33 +5,139 @@ document.addEventListener("DOMContentLoaded", async function () {
   const chatMessages = document.getElementById("chat-messages");
   const welcomeMessage = document.getElementById("welcome_msg");
   const messageInput = document.getElementById("message-input");
+  const messageBar = document.getElementById("message-bar");
   const leftPanel = document.getElementById("left_pannel");
+  const resizer = document.querySelector(".resizer");
+  const container = document.getElementById("wrapper");
   const rightPanel = document.getElementById("right_pannel");
   const micIcon = document.getElementById("mic-icon");
   const sendIcon = document.getElementById("send-icon");
   const backIcon = document.getElementById("back-icon");
-  let chatData = [];
+  const NoContact = document.getElementById("no-chats");
+  const wrapper = document.getElementById("wrapper");
 
-  // Fetch chat data
+  // Message input handling
+  messageInput.addEventListener("input", () => {
+    messageInput.style.height = "auto";
+    messageInput.style.height = Math.min(messageInput.scrollHeight, 160) + "px";
+  });
+
+  // Chat data loading
+  let chatData = [];
   try {
     const response = await fetch("chatData.json");
     chatData = await response.json();
   } catch (error) {
+    wrapper.style.display = "none";
+    NoContact.style.display = "flex";
     console.error("Failed to load chat data:", error);
   }
 
-  backIcon.addEventListener("click", () => {
-    rightPanel.style.display = "none";
-    leftPanel.style.display = "block"; // Change from 'flex' to 'block' for consistency
+  // Resizer functionality
+  let isResizing = false;
+  resizer.addEventListener("mousedown", () => {
+    isResizing = true;
+    leftPanel.classList.add("no-transition");
+    rightPanel.classList.add("no-transition");
+    document.body.style.cursor = "ew-resize";
+
+    const handleMouseMove = (event) => {
+      if (!isResizing) return;
+      let containerRect = container.getBoundingClientRect();
+      let leftWidth = event.clientX - containerRect.left;
+      if (leftWidth < 100 || leftWidth > containerRect.width - 100) return;
+      let leftPercent = (leftWidth / containerRect.width) * 100;
+      let rightPercent = 100 - leftPercent;
+      leftPanel.style.width = `${leftPercent}vw`;
+      rightPanel.style.width = `${rightPercent}vw`;
+    };
+
+    const stopResizing = () => {
+      isResizing = false;
+      document.body.style.cursor = "default";
+      leftPanel.classList.remove("no-transition");
+      rightPanel.classList.remove("no-transition");
+      document.removeEventListener("mousemove", handleMouseMove);
+      document.removeEventListener("mouseup", stopResizing);
+    };
+
+    document.addEventListener("mousemove", handleMouseMove);
+    document.addEventListener("mouseup", stopResizing);
   });
 
-  // Dynamically generate chat items
+  // Mobile detection
+  function isMobile() {
+    return window.innerWidth <= 600;
+  }
+
+  // Keyboard handling
+  // Enhanced keyboard handling function
+  function adjustForKeyboard() {
+    if (window.visualViewport.height < window.innerHeight) {
+      // Keyboard is open
+      const keyboardHeight = window.innerHeight - window.visualViewport.height;
+
+      // Adjust message bar position
+      messageBar.style.position = "absolute";
+      messageBar.style.bottom = `${keyboardHeight}px`;
+
+      // Adjust chat messages container
+      chatMessages.style.paddingBottom = `${
+        keyboardHeight + messageBar.offsetHeight
+      }px`;
+      chatMessages.style.marginBottom = `calc(100vh - ${
+        keyboardHeight + messageBar.offsetHeight
+      }px)`;
+
+      // Ensure last message is visible
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      // Prevent viewport resize
+      window.addEventListener("resize", handleResize);
+    } else {
+      // Keyboard is closed
+      messageBar.style.position = "";
+      messageBar.style.bottom = "";
+      chatMessages.style.paddingBottom = "";
+      chatMessages.style.marginBottom = "";
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      // Cleanup resize handler
+      window.removeEventListener("resize", handleResize);
+    }
+  }
+
+  // Handle viewport resize
+  function handleResize() {
+    window.scrollTo(0, 0);
+  }
+  // Back button handling
+  if (backIcon) {
+    backIcon.addEventListener("click", () => {
+      document.querySelectorAll(".chat-item").forEach((item) => {
+        item.classList.remove("active");
+      });
+      if (isMobile()) {
+        messageInput.blur();
+        rightPanel.classList.remove("active");
+        setTimeout(() => {
+          rightPanel.style.display = "none";
+        }, 300);
+      }
+    });
+  }
+
+  // Chat items generation
   chatData.forEach((chat) => {
     const chatItem = document.createElement("div");
     chatItem.classList.add("chat-item");
     chatItem.innerHTML = `
             <div class="avatar">
-                <img src="${chat.avatar}" onerror="this.onerror=null; this.src='images/noProfilePhoto.png'; " alt="${chat.name} " />
+                <img src="${
+                  chat.avatar
+                }" onerror="this.onerror=null; this.src='images/noProfilePhoto.png';" alt="${
+      chat.name
+    }" />
             </div>
             <div class="details">
                 <p class="name">${chat.name}</p>
@@ -39,52 +145,66 @@ document.addEventListener("DOMContentLoaded", async function () {
                   chat.messages[chat.messages.length - 1].text
                 }</p>
             </div>
+            <small>${chat.messages[chat.messages.length - 1].time}</small>
         `;
-
     chatItemsContainer.appendChild(chatItem);
 
-    // Click event for chat item
-    chatItem.addEventListener("click", function () {
+    chatItem.addEventListener("click", function (event) {
       document
         .querySelectorAll(".chat-item")
         .forEach((item) => item.classList.remove("active"));
       chatItem.classList.add("active");
 
-      chatNav.querySelector(".avatar").innerHTML = `
-        <img src="${chat.avatar}" onerror="this.onerror=null; this.src='images/noProfilePhoto.png'; " alt="${chat.name}" />
-      `;
+      // Add Ripple Effect
+      const rect = chatItem.getBoundingClientRect();
+      const ripple = document.createElement("span");
+      const size = Math.max(rect.width, rect.height);
+      const x = event.clientX - rect.left - size / 2;
+      const y = event.clientY - rect.top - size / 2;
 
+      ripple.style.width = ripple.style.height = `${size}px`;
+      ripple.style.left = `${x}px`;
+      ripple.style.top = `${y}px`;
+      ripple.classList.add("ripple");
+
+      // Prevent multiple ripples stacking
+      chatItem.querySelectorAll(".ripple").forEach((r) => r.remove());
+      chatItem.appendChild(ripple);
+
+      setTimeout(() => ripple.remove(), 400);
+
+      chatNav.querySelector(".avatar").innerHTML = `
+                <img src="${chat.avatar}" onerror="this.onerror=null; this.src='images/noProfilePhoto.png';" alt="${chat.name}" />
+            `;
       chatNav.querySelector("h3").textContent = chat.name;
 
-      // Display messages
       chatMessages.innerHTML = chat.messages
         .map(
           (msg) => `
-                    <p class="${msg.sender === "You" ? "sent" : "received"}">
+                    <div class="${msg.sender === "You" ? "sent" : "received"}">
                         <strong>${msg.sender}</strong>
-                        <span>${msg.text}</span>
-                        <small>${msg.time}</small>
-                    </p>
+                        <p><span>${msg.text}</span>
+                        <small>${msg.time}</small></p>
+                    </div>
                 `
         )
         .join("");
 
-      // Scroll to the latest message
-      chatMessages.scrollTop = chatMessages.scrollHeight;
-
       chatWrapper.style.display = "flex";
+      chatMessages.scrollTop = chatMessages.scrollHeight;
       if (welcomeMessage) welcomeMessage.style.display = "none";
 
-      // Show right panel & hide left panel on mobile
-      if (window.innerWidth <= 600) {
-        leftPanel.style.display = "none";
-        rightPanel.style.display = "flex";
-        history.pushState({ chatOpen: true }, "", "#chat");
+      if (isMobile()) {
+        rightPanel.style.display = "block";
+        setTimeout(() => {
+          rightPanel.classList.add("active");
+          chatMessages.scrollTop = chatMessages.scrollHeight;
+        }, 10);
       }
     });
   });
 
-  // Function to toggle between mic and send button
+  // Message input handling
   function toggleIcons() {
     if (messageInput.value.trim().length > 0) {
       micIcon.style.display = "none";
@@ -95,64 +215,76 @@ document.addEventListener("DOMContentLoaded", async function () {
     }
   }
 
-  // Event listener for input change
   messageInput.addEventListener("input", toggleIcons);
 
-  // Function to send a message
+  // Send message functionality
   function sendMessage() {
     const message = messageInput.value.trim();
+    if (!message) return;
 
-    if (message) {
-      const contactName = chatNav.querySelector("h3").textContent;
-      const currentChat = chatData.find((chat) => chat.name === contactName);
+    const contactName = chatNav.querySelector("h3").textContent;
+    const currentChat = chatData.find((chat) => chat.name === contactName);
 
-      if (currentChat) {
-        const time = new Date().toLocaleTimeString([], {
-          hour: "2-digit",
-          minute: "2-digit",
-        });
-        const newMessage = { sender: "You", text: message, time };
+    if (currentChat) {
+      const time = new Date().toLocaleTimeString("en-IN", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: true,
+      });
+      const newMessage = { sender: "You", text: message, time };
 
-        currentChat.messages.push(newMessage);
+      currentChat.messages.push(newMessage);
+      const newMessageElement = document.createElement("div");
+      newMessageElement.classList.add("sent");
+      newMessageElement.innerHTML = `<strong>You</strong> <p><span>${message}</span> <small>${time}</small></p>`;
+      chatMessages.appendChild(newMessageElement);
 
-        const newMessageElement = document.createElement("p");
-        newMessageElement.classList.add("sent");
-        newMessageElement.innerHTML = `<strong>You</strong> <span>${message}</span> <small>${time}</small>`;
-        chatMessages.appendChild(newMessageElement);
+      messageInput.value = "";
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+      messageInput.style.height = "auto";
+      toggleIcons();
 
-        messageInput.value = ""; // Clear input
-        chatMessages.scrollTop = chatMessages.scrollHeight; // Auto-scroll to bottom
+      if (isMobile()) {
+        messageInput.focus(); // Maintain focus after send
+        messageInput.style.height = "auto"; // Reset height
+      }
 
-        toggleIcons(); // Reset icons after sending message
+      const chatItem = [...chatItemsContainer.children].find(
+        (item) => item.querySelector(".name").textContent === contactName
+      );
+      if (chatItem) {
+        const lastMessageElement = chatItem.querySelector(".last-message");
+        lastMessageElement.textContent = message;
 
-        // Update last message in chat list
-        const chatItem = [...chatItemsContainer.children].find(
-          (item) => item.querySelector(".name").textContent === contactName
-        );
-        if (chatItem) {
-          chatItem.querySelector(".last-message").textContent = message;
-        }
+        // Add these 3 lines right after updating the text
+        void lastMessageElement.offsetWidth; // Trigger reflow
+        lastMessageElement.style.display = "none";
+        lastMessageElement.style.display = "block";
       }
     }
   }
 
-  // Send message on clicking send button
   sendIcon.addEventListener("click", sendMessage);
-
-  // Send message on pressing Enter
-  messageInput.addEventListener("keypress", function (event) {
+  messageInput.addEventListener("keypress", (event) => {
     if (event.key === "Enter") {
+      if (event.shiftKey) {
+        return;
+      }
+
       event.preventDefault();
-      sendMessage();
+      if (!isMobile()) {
+        sendMessage();
+      }
     }
   });
 
-  // Handle back navigation on mobile
-  window.addEventListener("popstate", function (event) {
-    if (event.state && event.state.chatOpen) {
-      rightPanel.style.display = "none";
-      leftPanel.style.display = "block";
-      history.replaceState(null, "", "#");
+  // Event listeners for keyboard handling
+  messageInput.addEventListener("focus", adjustForKeyboard);
+  messageInput.addEventListener("blur", adjustForKeyboard);
+  window.addEventListener("resize", adjustForKeyboard);
+  sendIcon.addEventListener("mousedown", (e) => {
+    if (isMobile()) {
+      e.preventDefault();
     }
   });
 });
